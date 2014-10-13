@@ -1,5 +1,5 @@
 pkgname=megasync
-pkgver=1.0.33
+pkgver=1.0.34
 pkgrel=1
 pkgdesc="Sync your files to your Mega account. Official app"
 arch=('x86_64')
@@ -9,7 +9,7 @@ conflicts=('megatools')
 depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng')
 
 source=("https://mega.co.nz/linux/MEGAsync/Debian_7.0/amd64/${pkgname}_${pkgver}_amd64.deb")
-md5sums=('c55e060aa75f62588677b7075947880e')
+md5sums=('5d234be44f27a6dfb8891b2ef17356a7')
 
 install="${pkgname}.install"
 options=(!strip)
