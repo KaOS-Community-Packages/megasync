@@ -8,7 +8,7 @@ license=('custom:The Clarified Artistic License')
 conflicts=('megatools')
 depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng')
 source=("https://mega.co.nz/linux/MEGAsync/Debian_7.0/amd64/${pkgname}_${pkgver}_amd64.deb")
-md5sums=('9c06fe45333162b811aabf89b68b2c0c')
+md5sums=('26a84f077cd60f177ba3e0b2bef43141')
 
 install="${pkgname}.install"
 options=(!strip)
