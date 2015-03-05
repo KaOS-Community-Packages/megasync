@@ -1,18 +1,18 @@
 pkgname=megasync
-pkgver=1.0.39
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Sync your files to your Mega account. Official app"
 arch=('x86_64')
 url="http://mega.co.nz"
 license=('custom:The Clarified Artistic License')
-conflicts=('megatools')
-depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng')
+depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng' 'sqlite')
 source=("https://mega.co.nz/linux/MEGAsync/Debian_7.0/amd64/${pkgname}_${pkgver}_amd64.deb")
-md5sums=('26a84f077cd60f177ba3e0b2bef43141')
+md5sums=('fd39456080e087cf1c46d91fb67fad13')
 
 install="${pkgname}.install"
 options=(!strip)
-package (){
+
+package() {
 	cd "${srcdir}"
 	pwd
 	tar -xzf data.tar.gz -C ${pkgdir}
