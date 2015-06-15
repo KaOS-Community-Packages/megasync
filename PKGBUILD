@@ -7,7 +7,7 @@ url="http://mega.co.nz"
 license=('custom:The Clarified Artistic License')
 depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng' 'sqlite')
 source=("https://mega.co.nz/linux/MEGAsync/Debian_7.0/amd64/${pkgname}_${pkgver}_amd64.deb")
-md5sums=('fd39456080e087cf1c46d91fb67fad13')
+md5sums=('a96197054f4c4a9fbc74185704a34c94')
 
 install="${pkgname}.install"
 options=(!strip)
