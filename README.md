@@ -3,7 +3,7 @@ megasync
 
 Sync your files to your Mega account. Official app
 
-URL= https://mega.co.nz/
+URL= https://mega.nz/
 
 Install with kcp:
 
