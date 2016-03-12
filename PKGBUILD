@@ -1,22 +1,42 @@
 pkgname=megasync
 pkgver=2.7.2
 pkgrel=1
-pkgdesc="Sync your files to your Mega account. Official app"
+pkgdesc="Sync your files to your Mega account. Official app."
 arch=('x86_64')
-url="http://mega.nz"
-license=('custom:The Clarified Artistic License')
-depends=('openssl' 'c-ares' 'libgcrypt' 'crypto++' 'qt' 'libpng' 'sqlite')
-source=("https://mega.nz/linux/MEGAsync/Debian_8.0/amd64/${pkgname}_${pkgver}_amd64.deb")
-md5sums=('1901fe664ed6434f6988fea328952f03')
+license=('custom:MEGA')
+depends=('qt5-base' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv')
+makedepends=('git' 'qt5-tools')
+source=("git://github.com/meganz/MEGAsync.git")
+md5sums=('SKIP')
 
-install="${pkgname}.install"
-options=(!strip)
+prepare() {
+	cd MEGAsync
+	sed 's|git@github.com:meganz/sdk.git|https://github.com/meganz/sdk.git|g' -i .gitmodules
+	git submodule update --init --recursive
+
+	cd src/MEGASync/mega
+	./autogen.sh
+	./configure --disable-examples \
+	            --disable-posix-threads \
+	            --without-freeimage \
+	            --without-sodium
+}
+
+build() {
+	cd MEGAsync/src
+	/usr/lib/qt5/bin/qmake CONFIG+=release MEGA.pro
+	/usr/lib/qt5/bin/lrelease MEGASync/MEGASync.pro
+	make
+}
 
 package() {
-	cd "${srcdir}"
-	pwd
-	tar -xJf data.tar.xz -C ${pkgdir}
-	rm -r ${pkgdir}/usr/share/doc
-	mkdir -p ${pkgdir}/usr/lib
-	ln -s /usr/lib/libcryptopp.so ${pkgdir}/usr/lib/libcrypto++.so.9
+	cd MEGAsync
+	install -Dm644 LICENCE.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+	cd src/MEGASync
+	install -Dm755 megasync "${pkgdir}/usr/bin/megasync"
+
+	cd platform/linux/data
+	install -Dm644 megasync.desktop "${pkgdir}/usr/share/applications/megasync.desktop"
+	cp -r icons "${pkgdir}/usr/share"
 }
