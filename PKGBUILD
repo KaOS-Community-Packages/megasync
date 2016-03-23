@@ -1,5 +1,5 @@
 pkgname=megasync
-pkgver=2.7.2
+pkgver=2.8.0
 pkgrel=1
 pkgdesc="Sync your files to your Mega account. Official app."
 url='http://mega.nz'
@@ -7,7 +7,7 @@ arch=('x86_64')
 license=('custom:MEGA')
 depends=('qt5-base' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv')
 makedepends=('git' 'qt5-tools')
-source=("git://github.com/meganz/MEGAsync.git")
+source=("git+https://github.com/meganz/MEGAsync.git#tag=v${pkgver//./_}_0_Linux")
 md5sums=('SKIP')
 
 prepare() {
