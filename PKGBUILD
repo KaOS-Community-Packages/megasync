@@ -1,5 +1,5 @@
 pkgname=megasync
-pkgver=2.9.1
+pkgver=2.9.5
 pkgrel=1
 pkgdesc="Sync your files to your Mega account. Official app."
 url='http://mega.nz'
