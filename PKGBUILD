@@ -1,5 +1,5 @@
 pkgname=megasync
-pkgver=3.5
+pkgver=3.5.3
 pkgrel=1
 pkgdesc="Sync your files to your Mega account. Official app."
 url='http://mega.nz'
@@ -8,7 +8,7 @@ license=('custom:MEGA')
 depends=('qt5-base' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv' 'libsodium')
 makedepends=('qt5-tools')
 source=("https://mega.nz/linux/MEGAsync/Debian_8.0/${pkgname}_${pkgver}.orig.tar.gz")
-md5sums=('5cffad5e797a77bc25a6fa4c0912c43d')
+md5sums=('5c910eea1ca1c44aea81e5dc81338a09')
 
 prepare() {
     cd "${pkgname}-${pkgver}/MEGASync/mega"
