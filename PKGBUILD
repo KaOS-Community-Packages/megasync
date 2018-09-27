@@ -8,19 +8,19 @@
 # Contributor: Gunther Strube, https://github.com/bits4fun
 
 pkgname=megasync
-pkgver=3.6.6.0
+pkgver=3.6.7.0
 pkgrel=1
-_sdkver=3.3.9
-pkgdesc="Sync your files to your Mega account. Official app."
-url='https://github.com/meganz/megasync'
+_sdkver=3.4.0
+pkgdesc="Easy automated syncing between your computers and your MEGA cloud drive"
+url='http://mega.nz/#sync'
 arch=('x86_64')
 license=('custom:MEGA LIMITED CODE REVIEW LICENCE')
-depends=('qt5-base' 'qt5-svg' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv' 'libsodium' 'mediainfolib')
-makedepends=('qt5-tools' 'swig' 'doxygen')
+depends=('glibc>=2.27' 'gcc-libs' 'qt5-base>=5.11' 'qt5-tools>=5.11' 'icu>=61.1' 'sqlite' 'openssl' 'zlib' 'qt5-svg>=5.11' 'bzip2' 'xz' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv' 'libsodium' 'mediainfolib')
+makedepends=('unzip' 'wget' 'ca-certificates' 'qt5-tools' 'bzip2' 'xz')
 source=("https://github.com/meganz/MEGAsync/archive/v${pkgver}_Linux.tar.gz"
         "https://github.com/meganz/sdk/archive/v${_sdkver}.tar.gz")
-sha256sums=('377a0b77b2506ebe0052d6366c3b5b74c3012cb4938e4df5e4b003677073f5fa'
-            '522b63bf2f2d1eeff0644ef106fff94fcd4f6a844e01539cc6cfb30d16463dba')
+sha256sums=('2c11747db5aab4149a1fd01371ffa914970491ea70b71d7bcbec3475c0e6507f'
+            '0a13576ac3efb741dd67c43698a99ff1ff721cc806f28908cc0bdba808d4988b')
 
 prepare() {
     rm -rf MEGAsync-${pkgver}_Linux/src/MEGASync/mega
@@ -70,4 +70,7 @@ package() {
     do
         install -Dm 644 "${size}/apps/mega.png" "${pkgdir}/usr/share/icons/hicolor/${size}/apps/mega.png"
     done
+    
+    mkdir -p ${pkgdir}/etc/sysctl.d/
+    echo "fs.inotify.max_user_watches = 524288" > ${pkgdir}/etc/sysctl.d/100-megasync-inotify-limit.conf    
 }
