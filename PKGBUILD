@@ -1,12 +1,3 @@
-# Contributor: Yoyo Fernández, https://github.com/yoyo308
-# Contributor: Pablo Cesar Agudelo Castro, https://github.com/pcagudelo
-# Contributor: Gabriel, https://github.com/Gabrielgtx
-# Contributor: Francisco Josué Morazán Arriola, https://github.com/fjmorazan
-# Contributor: abucodonosor, https://github.com/abucodonosor
-# Contributor: Benjamin VAUDOUR, https://github.com/bvaudour
-# Contributor: md2z34, https://github.com/md2z34
-# Contributor: Gunther Strube, https://github.com/bits4fun
-
 pkgname=megasync
 pkgver=3.6.7.0
 pkgrel=1
