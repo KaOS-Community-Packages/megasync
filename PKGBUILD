@@ -1,18 +1,17 @@
 pkgname=megasync
-pkgver=3.6.7.0
+pkgver=3.7.1.0
 pkgrel=1
-_sdkver=3.4.0
+_sdkver=3.4.5
 pkgdesc="Easy automated syncing between your computers and your MEGA cloud drive"
 url='http://mega.nz/#sync'
 arch=('x86_64')
 license=('custom:MEGA LIMITED CODE REVIEW LICENCE')
-depends=('glibc>=2.27' 'gcc-libs' 'qt5-base>=5.11' 'qt5-tools>=5.11' 'icu>=61.1' 'sqlite' 'openssl' 'zlib' 'qt5-svg>=5.11' 'bzip2' 'xz' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv' 'libsodium' 'mediainfolib')
+depends=('glibc>=2.27' 'gcc-libs' 'qt5-base>=5.11' 'qt5-tools>=5.11' 'icu>=61.1' 'sqlite' 'openssl>=1.1.1' 'zlib' 'qt5-svg>=5.11' 'bzip2' 'xz' 'c-ares' 'curl' 'crypto++' 'hicolor-icon-theme' 'libuv' 'libsodium' 'mediainfolib')
 makedepends=('unzip' 'wget' 'ca-certificates' 'qt5-tools' 'bzip2' 'xz')
 source=("https://github.com/meganz/MEGAsync/archive/v${pkgver}_Linux.tar.gz"
         "https://github.com/meganz/sdk/archive/v${_sdkver}.tar.gz")
-sha256sums=('2c11747db5aab4149a1fd01371ffa914970491ea70b71d7bcbec3475c0e6507f'
-            '0a13576ac3efb741dd67c43698a99ff1ff721cc806f28908cc0bdba808d4988b')
-
+sha256sums=('a126abc2e32171a1ca661fc0bdf8dc39bbb07334c755d0907c0c60c6557ccb86'
+            'c7d94b95c4a0a2613f8989bd9dc446c522d46e0903dc3d8c8d4600c6e49b3d59')
 prepare() {
     rm -rf MEGAsync-${pkgver}_Linux/src/MEGASync/mega
     mv sdk-${_sdkver} MEGAsync-${pkgver}_Linux/src/MEGASync/mega
