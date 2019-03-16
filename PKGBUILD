@@ -1,7 +1,7 @@
 pkgname=megasync
-pkgver=3.7.1.0
+pkgver=4.0.2.0
 pkgrel=1
-_sdkver=3.4.5
+_sdkver=3.4.8
 pkgdesc="Easy automated syncing between your computers and your MEGA cloud drive"
 url='http://mega.nz/#sync'
 arch=('x86_64')
@@ -10,8 +10,8 @@ depends=('glibc>=2.27' 'gcc-libs' 'qt5-base>=5.11' 'qt5-tools>=5.11' 'icu>=61.1'
 makedepends=('unzip' 'wget' 'ca-certificates' 'qt5-tools' 'bzip2' 'xz')
 source=("https://github.com/meganz/MEGAsync/archive/v${pkgver}_Linux.tar.gz"
         "https://github.com/meganz/sdk/archive/v${_sdkver}.tar.gz")
-sha256sums=('a126abc2e32171a1ca661fc0bdf8dc39bbb07334c755d0907c0c60c6557ccb86'
-            'c7d94b95c4a0a2613f8989bd9dc446c522d46e0903dc3d8c8d4600c6e49b3d59')
+sha256sums=('5153aa382f8fd2a518af90c98c4933e5d5df6810d1b2143a7ff1ae667458ae17'
+            '26f89d7f253e821dd8c46a46a382e3664bc8398b4750c8703be0888c1c3b10a3')
 prepare() {
     rm -rf MEGAsync-${pkgver}_Linux/src/MEGASync/mega
     mv sdk-${_sdkver} MEGAsync-${pkgver}_Linux/src/MEGASync/mega
